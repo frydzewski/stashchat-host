@@ -1,0 +1,17 @@
+{
+  "name": "@stashchat/host",
+  "version": "0.1.0",
+  "description": "Local-disk storage daemon for Talk — your group's chat history lives on your own computer.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/index.ts",
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "files": [
+    "src"
+  ]
+}
