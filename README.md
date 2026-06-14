@@ -20,8 +20,9 @@ like:
 ```sh
 git clone https://github.com/frydzewski/stashchat-host && cd stashchat-host
 
-RELAY_WS_URL="wss://<ws-id>.execute-api.us-east-1.amazonaws.com/\$default" \
-DAEMON_TOKEN="<your Talk session token>" \
+# single-quote the URL — it contains a literal `$default` stage path
+RELAY_WS_URL='wss://<ws-id>.execute-api.us-east-1.amazonaws.com/$default' \
+DAEMON_TOKEN='<your Talk session token>' \
 node src/index.ts
 ```
 
