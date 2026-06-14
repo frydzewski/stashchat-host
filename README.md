@@ -44,6 +44,11 @@ On success it prints `daemon connected + registered`. Leave it running.
   messages buffer on the relay, **draining** to your disk when the daemon returns.
 - This daemon is your group's storage; your browser is just a normal chat client.
 
+Images are stored too: when you send a picture in a local-storage group, the
+daemon downloads it to `~/.stashchat/media/<groupId>/<mediaId>` — your disk holds
+the durable copy. (The platform keeps a temporary ~30-day serving copy so the
+image loads instantly; after that the daemon re-serves it on demand.)
+
 ## Test
 
 ```sh
