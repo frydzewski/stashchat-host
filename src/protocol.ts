@@ -15,7 +15,7 @@ export type InboundFrame =
 /** Daemon→relay frames use `action` (to match the relay's `body.action` switch). */
 export type OutboundFrame =
   | { action: "storeAck"; groupId: string; msgId: string }
-  | { action: "storeResult"; requestId: string; replyTo: string; messages: Message[] };
+  | { action: "storeResult"; requestId: string; replyTo: string; groupId: string; messages: Message[] };
 
 /** Apply one inbound frame to the store; return the reply frame (or null). */
 export function handleDaemonFrame(frame: InboundFrame, store: DaemonStore): OutboundFrame | null {
@@ -31,6 +31,7 @@ export function handleDaemonFrame(frame: InboundFrame, store: DaemonStore): Outb
         action: "storeResult",
         requestId: frame.requestId,
         replyTo: frame.replyTo,
+        groupId: frame.groupId,
         messages: store.getMessages(frame.groupId, { before: frame.before, limit: frame.limit }),
       };
     default:

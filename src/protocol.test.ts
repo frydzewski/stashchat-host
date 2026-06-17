@@ -22,6 +22,7 @@ test("storeQuery returns storeResult echoing replyTo", () => {
   assert.equal(reply?.action, "storeResult");
   if (reply && reply.action === "storeResult") {
     assert.equal(reply.replyTo, "conn-9");
+    assert.equal(reply.groupId, "g1");
     assert.equal(reply.messages.length, 1);
   }
 });
